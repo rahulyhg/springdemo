@@ -17,6 +17,7 @@ public class DailyRashifalEntity {
 	private int yr;
 	private int month;
 	private int day;
+
 	public DailyRashifalEntity(String id, String rashifal, int yr, int month, int day) {
 		super();
 		this.id = id;
@@ -25,10 +26,9 @@ public class DailyRashifalEntity {
 		this.month = month;
 		this.day = day;
 	}
+
 	private DailyRashifalEntity() {
 		super();
 	}
-	
-	
-	
+
 }
