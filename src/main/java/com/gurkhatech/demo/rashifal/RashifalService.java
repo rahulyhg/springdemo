@@ -24,15 +24,19 @@ public class RashifalService {
 	}
 	
 	public DailyRashifalModel getDaily(int year,int month,int day,int rashi){
-		return dailyRepo.findOne(rashi+"");
+		return dailyRepo.findOne(null);
 	}
 	
 	public List<DailyRashifalModel> getAllDaily(int year,int month,int day){
 		List<DailyRashifalModel> rashiList = new ArrayList<DailyRashifalModel>();
-		dailyRepo.findAll().forEach(rashiList::add);
+		//dailyRepo.findAll();//.forEach(rashiList::add);
+//		rashiList.add(dailyRepo.findOne(year));
 		return rashiList;
 	}
 	
+	public DailyRashifalModel getDaily(String id ){
+		return dailyRepo.findOne(id+"");
+	}
 	
 	public TestThing getTest(){
 		return testRepo.findOne("i");

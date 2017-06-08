@@ -13,20 +13,30 @@ public class RashifalController {
 
 	@Autowired
 	private RashifalService service;
-	
+
 	@RequestMapping("rashifal/hey")
 	public String sayHey() {
 		return service.getGreetingMessage();
 	}
-	
+
+	/*''
+	 * @RequestMapping("rashifal/alldaily") public List<DailyRashifalModel>
+	 * getAllDailyRashifal() { return service.getAllDaily(2013, 1, 1); }
+	 */
 	@RequestMapping("rashifal/daily")
-	public List<DailyRashifalModel> getAllDailyRashifal() {
-		return service.getAllDaily(2013, 1, 1);
+	public DailyRashifalModel getDailyRashifal() {
+		DailyRashifalModel drm = service.getDaily(3+"");
+		if (drm != null) {
+			System.out.println("!Not NULL");
+			return drm;
+		}
+		System.out.println("NULL");
+		return null;
 	}
+
 	@RequestMapping("rashifal/test")
 	public TestThing test() {
 		return service.getTest();
 	}
-	
-	
+
 }
