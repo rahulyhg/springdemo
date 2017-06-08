@@ -1,4 +1,4 @@
-package com.gurkhatech.demo;
+package com.gurkhatech.toyanath;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

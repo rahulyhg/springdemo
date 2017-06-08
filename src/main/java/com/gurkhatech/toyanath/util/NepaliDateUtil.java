@@ -1,4 +1,4 @@
-package com.gurkhatech.demo.util;
+package com.gurkhatech.toyanath.util;
 
 public class NepaliDateUtil {
 
