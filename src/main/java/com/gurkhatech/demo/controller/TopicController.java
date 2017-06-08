@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TopicController {
 	
-	@Autowired
+	/*@Autowired
 	private TopicService topicService;
 	@RequestMapping("rashifal/daily")
 	public List<Topic> getAllTopics() {
@@ -40,5 +40,5 @@ public class TopicController {
 	public Topic getTopicByName(@PathVariable("name") String topic){
 		return topicService.getTopicByName(topic);
 	}
-	
+	*/
 	}

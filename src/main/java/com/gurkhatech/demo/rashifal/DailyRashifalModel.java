@@ -7,7 +7,7 @@ import javax.persistence.Id;
 public class DailyRashifalModel {
 
 	@Id
-	private int id;
+	private String id;
 	private String rashifal;
 	private int year;
 	private int month;
@@ -15,18 +15,17 @@ public class DailyRashifalModel {
 
 	public DailyRashifalModel(int id, String rashifal, int year, int month, int day) {
 		super();
-		this.id = id;
 		this.rashifal = rashifal;
 		this.year = year;
 		this.month = month;
 		this.day = day;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -67,7 +66,7 @@ public class DailyRashifalModel {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + day;
-		result = prime * result + id;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + month;
 		result = prime * result + ((rashifal == null) ? 0 : rashifal.hashCode());
 		result = prime * result + year;
@@ -85,7 +84,10 @@ public class DailyRashifalModel {
 		DailyRashifalModel other = (DailyRashifalModel) obj;
 		if (day != other.day)
 			return false;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		if (month != other.month)
 			return false;
@@ -99,4 +101,5 @@ public class DailyRashifalModel {
 		return true;
 	}
 
+	
 }

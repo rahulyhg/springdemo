@@ -7,6 +7,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gurkhatech.demo.rashifal.test.TestThing;
+import com.gurkhatech.demo.rashifal.test.TestThingRepo;
+
 @Service
 public class RashifalService {
 	
@@ -14,13 +17,25 @@ public class RashifalService {
 	@Autowired	WeeklyRashifalRepository weeklyRepo;
 	@Autowired	MonthlyRashifalRepository monthlyRepo;
 	@Autowired	YearlyRashifalRepository yearlyRepo;
+	@Autowired TestThingRepo testRepo;
 	
 	public String getGreetingMessage(){
 		return "Hey yo man";
 	}
 	
-	public DailyRashifalModel getDailyRashifal(int year,int month,int day,int rashi){
+	public DailyRashifalModel getDaily(int year,int month,int day,int rashi){
 		return dailyRepo.findOne(rashi+"");
+	}
+	
+	public List<DailyRashifalModel> getAllDaily(int year,int month,int day){
+		List<DailyRashifalModel> rashiList = new ArrayList<DailyRashifalModel>();
+		dailyRepo.findAll().forEach(rashiList::add);
+		return rashiList;
+	}
+	
+	
+	public TestThing getTest(){
+		return testRepo.findOne("i");
 	}
 	
 }
