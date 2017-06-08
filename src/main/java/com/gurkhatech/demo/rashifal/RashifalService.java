@@ -10,9 +10,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class RashifalService {
 	
+	@Autowired	DailyRashifalRepository dailyRepo;
+	@Autowired	WeeklyRashifalRepository weeklyRepo;
+	@Autowired	MonthlyRashifalRepository monthlyRepo;
+	@Autowired	YearlyRashifalRepository yearlyRepo;
+	
 	public String getGreetingMessage(){
-		return "Hey brother hey hey ";
+		return "Hey yo man";
 	}
 	
+	public DailyRashifalModel getDailyRashifal(int year,int month,int day,int rashi){
+		return dailyRepo.findOne(rashi+"");
+	}
 	
 }
