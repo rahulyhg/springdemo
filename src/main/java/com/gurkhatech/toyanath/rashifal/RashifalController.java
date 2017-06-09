@@ -15,6 +15,10 @@ public class RashifalController {
 	@Autowired
 	private RashifalService service;
 
+	
+	//Daily Rashifal API
+	
+	
 	@RequestMapping("rashifal/daily")
 	public List<DailyRashifalEntity> getDailyRashifalAll() {
 		return service.getDailyAll(2017, 2, 3);
@@ -34,8 +38,8 @@ public class RashifalController {
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "rashifal/daily/")
-	public void updateRashifalAll(@RequestBody List<DailyRashifalEntity> entityList) {
-		service.updateAll(entityList);
+	public void updateRashifalDailyAll(@RequestBody List<DailyRashifalEntity> entityList) {
+		service.updateDailyAll(entityList);
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "rashifal/daily/delete_all")
@@ -54,5 +58,48 @@ public class RashifalController {
 			@PathVariable("month") int month, @PathVariable("day") int day) {
 		service.deleteDailyByDay(id,year, month, day);
 	}
+	
+	
+	//Weekly Rashifal API
 
+	@RequestMapping("rashifal/weekly")
+	public List<WeeklyRashifalEntity> getWeeklyRashifalAll() {
+		return service.getWeeklyAll(2017, 2, 3);
+	}
+	
+	@RequestMapping("rashifal/weekly/{id}")
+	public WeeklyRashifalEntity getWeeklyRashifal(@PathVariable String id) {
+		return service.getWeekly(id,2017, 2, 3);
+		 /*DailyRashifalEntity entity = new DailyRashifalEntity("3", "Ramro Din", 2074, 2, 28);
+		 return entity;*/
+	}
+
+	@RequestMapping(method = RequestMethod.POST, value = "rashifal/weekly")
+	public void addWeeklyAll(@RequestBody List<WeeklyRashifalEntity> entityList) {
+		service.addWeeklyAll(entityList);
+
+	}
+
+	@RequestMapping(method = RequestMethod.PUT, value = "rashifal/weekly")
+	public void updateRashifalWeeklyAll(@RequestBody List<WeeklyRashifalEntity> entityList) {
+		service.updateWeeklyAll(entityList);
+	}
+
+	@RequestMapping(method = RequestMethod.DELETE, value = "rashifal/weekly/delete_all")
+	public void deleteWeeklyAll(@RequestBody List<WeeklyRashifalEntity> entityList) {
+		service.deleteWeeklyAll(entityList);
+	}
+
+	@RequestMapping(method = RequestMethod.DELETE, value = "rashifal/weekly/delete_all_by_starting_day/{year}/{month}/{day}")
+	public void deleteWeeklyAllByStartingDay(@PathVariable("year") int year, @PathVariable("month") int month,
+			@PathVariable("day") int day) {
+		service.deleteWeeklyAllByDay(year, month, day);
+	}
+
+	@RequestMapping(method = RequestMethod.DELETE, value = "rashifal/daily/delete_by_starting_day/{id}/{year}/{month}/{day}")
+	public void deleteWeeklyByStartingDay( @PathVariable("id") String id,@PathVariable("year") int year,
+			@PathVariable("month") int month, @PathVariable("day") int day) {
+		service.deleteWeeklyByDay(id,year, month, day);
+	}	
+	
 }

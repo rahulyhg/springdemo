@@ -41,7 +41,7 @@ public class RashifalService {
 		dailyRepo.save(entity);
 	}
 	
-	public void updateAll(List<DailyRashifalEntity> rashifalList){
+	public void updateDailyAll(List<DailyRashifalEntity> rashifalList){
 		for(int i=0;i<rashifalList.size();i++){
 			updateDaily(rashifalList.get(i));
 		}
@@ -62,11 +62,52 @@ public class RashifalService {
 	}
 	
 	public void deleteDailyByDay(String id,int year,int month, int day){
-		// TODO use query for a single day dailyRepo.deleteAll();
 		dailyRepo.delete(id);
 	}
 	public void deleteDailyAll(){
 		dailyRepo.deleteAll();
+	}
+	public List<WeeklyRashifalEntity> getWeeklyAll(int yr, int month, int day) {
+		List<WeeklyRashifalEntity> rashiList = new ArrayList<WeeklyRashifalEntity>();
+		weeklyRepo.findAll().forEach(rashiList::add);
+		return rashiList;
+	}
+	public WeeklyRashifalEntity getWeekly(String id, int year, int month, int day) {
+		return weeklyRepo.findOne(id);
+	}
+	public void addWeeklyAll(List<WeeklyRashifalEntity> entityList) {
+		for(int i=0;i<entityList.size();i++){
+			addWeekly(entityList.get(i));
+		}
+	}
+	public void addWeekly(WeeklyRashifalEntity entity){
+		weeklyRepo.save(entity);
+	}
+	public void updateWeeklyAll(List<WeeklyRashifalEntity> entityList) {
+		for (int i=0;i<entityList.size();i++){
+			updateWeekly(entityList.get(i));
+		}
+	}
+	public void updateWeekly(WeeklyRashifalEntity entity){
+		weeklyRepo.save(entity);
+	}
+	public void deleteWeeklyAll(List<WeeklyRashifalEntity> entityList) {
+		for(int i=0;i<entityList.size();i++){
+			deleteWeekly(entityList.get(i));
+		}
+	}
+	
+	public void deleteWeekly(WeeklyRashifalEntity entity){
+		weeklyRepo.delete(entity);
+	}
+	public void deleteWeeklyAllByDay(int year, int month, int day) {
+		for(int i=1;i<=12;i++){
+			deleteWeeklyByDay(i+"", year, month, day);
+		}
+		
+	}
+	public void deleteWeeklyByDay(String id, int year,int month, int day){
+		weeklyRepo.delete(id);
 	}
 
 }

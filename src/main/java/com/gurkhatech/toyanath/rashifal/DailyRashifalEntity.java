@@ -1,12 +1,7 @@
 package com.gurkhatech.toyanath.rashifal;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
-import org.dom4j.tree.AbstractEntity;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
 public class DailyRashifalEntity {
