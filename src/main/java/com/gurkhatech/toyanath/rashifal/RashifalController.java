@@ -43,16 +43,16 @@ public class RashifalController {
 		service.deleteDailyAll(entityList);
 	}
 
-	@RequestMapping(method = RequestMethod.DELETE, value = "rashifal/daily/delete_all_by_day")
+	@RequestMapping(method = RequestMethod.DELETE, value = "rashifal/daily/delete_all_by_day/{year}/{month}/{day}")
 	public void deleteDailyAllByDay(@PathVariable("year") int year, @PathVariable("month") int month,
 			@PathVariable("day") int day) {
 		service.deleteDailyAllByDay(year, month, day);
 	}
 
-	@RequestMapping(method = RequestMethod.DELETE, value = "rashifal/daily/delete_by_day")
-	public void deleteDailyByDay( @PathVariable("year") int year,
-			@PathVariable("month") int month, @PathVariable("day") int day,@PathVariable("id") String id) {
-		service.deleteDailyByDay(year, month, day, id);
+	@RequestMapping(method = RequestMethod.DELETE, value = "rashifal/daily/delete_by_day/{id}/{year}/{month}/{day}")
+	public void deleteDailyByDay( @PathVariable("id") String id,@PathVariable("year") int year,
+			@PathVariable("month") int month, @PathVariable("day") int day) {
+		service.deleteDailyByDay(id,year, month, day);
 	}
 
 }

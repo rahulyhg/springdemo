@@ -26,7 +26,6 @@ public class RashifalService {
 		return rashiList;
 	}
 	public DailyRashifalEntity getDaily( String id, int year, int month, int day) {
-		//TODO Find the way to make query.
 		return dailyRepo.findOne(id);
 	}
 	public void addDaily(DailyRashifalEntity entity) {
@@ -57,11 +56,14 @@ public class RashifalService {
 		}
 	}
 	public void deleteDailyAllByDay(int year,int month, int day){
-		// TODO use query for a single day dailyRepo.deleteAll();
+		for(int i=1;i<=12;i++){
+			deleteDailyByDay(i+"", year, month, day);
+		}
 	}
 	
-	public void deleteDailyByDay(int year,int month, int day,String id){
+	public void deleteDailyByDay(String id,int year,int month, int day){
 		// TODO use query for a single day dailyRepo.deleteAll();
+		dailyRepo.delete(id);
 	}
 	public void deleteDailyAll(){
 		dailyRepo.deleteAll();
