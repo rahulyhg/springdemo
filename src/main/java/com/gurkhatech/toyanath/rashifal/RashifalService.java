@@ -38,7 +38,7 @@ public class RashifalService {
 	}
 
 	public void updateDaily(DailyRashifalEntity entity) {
-		//TODO find method to update a touple
+		dailyRepo.save(entity);
 	}
 	
 	public void updateAll(List<DailyRashifalEntity> rashifalList){
