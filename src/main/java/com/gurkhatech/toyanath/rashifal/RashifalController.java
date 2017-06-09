@@ -17,7 +17,9 @@ public class RashifalController {
 
 	@RequestMapping("rashifal/daily/{id}")
 	public DailyRashifalEntity getDailyRashifal(@PathVariable String id) {
-		return service.getDaily(2017, 2, 3, id);
+		//return service.getDaily(2017, 2, 3, id);
+		 DailyRashifalEntity entity = new DailyRashifalEntity("3", "Ramro Din", 2074, 2, 28);
+		 return entity;
 	}
 
 	@RequestMapping("rashifal/daily")
