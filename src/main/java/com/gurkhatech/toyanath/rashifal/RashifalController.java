@@ -22,7 +22,7 @@ public class RashifalController {
 	
 	@RequestMapping("rashifal/daily/{id}")
 	public DailyRashifalEntity getDailyRashifal(@PathVariable String id) {
-		return service.getDaily(2,2017, 2, 3);
+		return service.getDaily(id,2017, 2, 3);
 		 /*DailyRashifalEntity entity = new DailyRashifalEntity("3", "Ramro Din", 2074, 2, 28);
 		 return entity;*/
 	}
