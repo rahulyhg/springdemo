@@ -18,16 +18,17 @@ public class RashifalService {
 	@Autowired
 	YearlyRashifalRepository yearlyRepo;
 
-	public DailyRashifalEntity getDaily(int year, int month, int day, String id) {
-		return dailyRepo.findOne("");
-	}
+	
 
 	public List<DailyRashifalEntity> getDailyAll(int year, int month, int day) {
 		List<DailyRashifalEntity> rashiList = new ArrayList<DailyRashifalEntity>();
 		dailyRepo.findAll().forEach(rashiList::add);
 		return rashiList;
 	}
-
+	public DailyRashifalEntity getDaily( String id, int year, int month, int day) {
+		//TODO Find the way to make query.
+		return dailyRepo.findOne(id);
+	}
 	public void addDaily(DailyRashifalEntity entity) {
 		dailyRepo.save(entity);
 	}
@@ -38,7 +39,7 @@ public class RashifalService {
 	}
 
 	public void updateDaily(DailyRashifalEntity entity) {
-		//dailyRepo.
+		//TODO find method to update a touple
 	}
 	
 	public void updateAll(List<DailyRashifalEntity> rashifalList){

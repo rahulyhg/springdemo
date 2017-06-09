@@ -15,16 +15,16 @@ public class RashifalController {
 	@Autowired
 	private RashifalService service;
 
-	@RequestMapping("rashifal/daily/{id}")
-	public DailyRashifalEntity getDailyRashifal(@PathVariable String id) {
-		//return service.getDaily(2017, 2, 3, id);
-		 DailyRashifalEntity entity = new DailyRashifalEntity("3", "Ramro Din", 2074, 2, 28);
-		 return entity;
-	}
-
 	@RequestMapping("rashifal/daily")
 	public List<DailyRashifalEntity> getDailyRashifalAll() {
 		return service.getDailyAll(2017, 2, 3);
+	}
+	
+	@RequestMapping("rashifal/daily/{id}")
+	public DailyRashifalEntity getDailyRashifal(@PathVariable String id) {
+		return service.getDaily(2,2017, 2, 3);
+		 /*DailyRashifalEntity entity = new DailyRashifalEntity("3", "Ramro Din", 2074, 2, 28);
+		 return entity;*/
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "rashifal/daily")
